@@ -35,4 +35,24 @@ class ContatoStoreRequest extends FormRequest
             'uf'           => "required|min:2"
         ];
     }
+
+    /**
+     *  Filters to be applied to the input.
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [
+            'nome'         => "trim",
+            'telefone'     => "trim",
+            'email'        => "trim",
+            'cep'          => "trim",
+            'logradouro'   => "trim",
+            'complemento'  => "trim",
+            'bairro'       => "trim",
+            'localidade'   => "trim",
+            'uf'           => "trim"
+        ];
+    }
 }
