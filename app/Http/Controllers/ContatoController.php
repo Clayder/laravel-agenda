@@ -35,7 +35,8 @@ class ContatoController extends Controller
      */
     public function store(\App\Http\Requests\ContatoStoreRequest $request)
     {
-
+        $data = $request->all();
+        return Contato::create($data);
     }
 
     /**
