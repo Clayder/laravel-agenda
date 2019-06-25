@@ -17,8 +17,8 @@ class CreateContatosTable extends Migration
             $table->bigIncrements('id');
 
             $table->string("nome");
-            $table->string("telefone");
-            $table->string("email");
+            $table->string("telefone")->unique();
+            $table->string("email")->unique();
             $table->string("cep");
             $table->string("logradouro");
             $table->string("complemento")->nullable();
