@@ -14,8 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-/**
- * Categoria de produtos
- */
-Route::resource("contato", "ContatoController");
