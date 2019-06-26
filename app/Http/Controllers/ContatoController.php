@@ -14,7 +14,7 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        echo "oi";
+        return view('index');
     }
 
     /**
