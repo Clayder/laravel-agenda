@@ -18,6 +18,14 @@ class ContatoController extends Controller
     }
 
     /**
+     * @return mixed
+     */
+    public function indexjson()
+    {
+        return Contato::paginate(10);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
