@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped" id="tabelaContato">
         <thead>
         <tr>
             <th>#</th>
@@ -38,20 +38,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
         </tbody>
     </table>
+    <nav id="paginator">
+        <ul class="pagination">
+        </ul>
+    </nav>
 </div>
 
 
