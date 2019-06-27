@@ -20,8 +20,9 @@ class ContatoController extends Controller
     /**
      * @return mixed
      */
-    public function indexjson()
+    public function indexjson(Request $request)
     {
+        $pesq = $request->input("q");
         return Contato::paginate(10);
     }
 
@@ -55,7 +56,7 @@ class ContatoController extends Controller
      */
     public function show($id)
     {
-        //
+        return Contato::find((int)$id);
     }
 
     /**

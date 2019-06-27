@@ -35,6 +35,7 @@
             <th>Localidade</th>
             <th>Complemento</th>
             <th>Estado</th>
+            <th>Visualizar</th>
         </tr>
         </thead>
         <tbody>
