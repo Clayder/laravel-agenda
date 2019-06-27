@@ -14,7 +14,16 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        echo "oi";
+        return view('index');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function indexjson(Request $request)
+    {
+        $pesq = $request->input("q");
+        return Contato::paginate(10);
     }
 
     /**
@@ -47,7 +56,7 @@ class ContatoController extends Controller
      */
     public function show($id)
     {
-        //
+        return Contato::find((int)$id);
     }
 
     /**
