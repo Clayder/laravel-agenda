@@ -23,9 +23,9 @@
 <body>
 <div class="container" style="margin-top: 50px">
     <div class="row">
-        <form class="form-inline" style="float: right">
+        <form class="form-inline" style="float: right" id="form-pesq">
             <div class="form-group">
-                <input type="text" class="form-control" id="pesquisar" placeholder="pesquisar">
+                <input type="text" class="form-control" id="input-pesquisa" placeholder="pesquisar">
             </div>
             <button type="submit" class="btn btn-primary" id="btn-pesquisar">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

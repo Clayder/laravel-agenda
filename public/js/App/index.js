@@ -159,4 +159,13 @@ function montarPaginator(data){
 $(function () {
     let pag = (localStorage.getItem("pagina") == null) ? 1 : localStorage.getItem("pagina");
     carregar(pag);
+
+    // $("#btn-pesquisar").click(function () {
+    //     console.log("cliq");
+    // })
+
+    $("#form-pesq").submit(function () {
+        console.log($("#input-pesquisa").val());
+        return false;
+    });
 });
