@@ -21,30 +21,42 @@
     <![endif]-->
 </head>
 <body>
-<div class="container">
-    <table class="table table-striped" id="tabelaContato">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>E-mail</th>
-            <th>Cep</th>
-            <th>Logradouro</th>
-            <th>Bairro</th>
-            <th>Localidade</th>
-            <th>Complemento</th>
-            <th>Estado</th>
-            <th>Visualizar</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <nav id="paginator">
-        <ul class="pagination">
-        </ul>
-    </nav>
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <form class="form-inline" style="float: right">
+            <div class="form-group">
+                <input type="text" class="form-control" id="pesquisar" placeholder="pesquisar">
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-pesquisar">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div>
+    <div class="row">
+        <table class="table table-striped" id="tabelaContato">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Cep</th>
+                <th>Logradouro</th>
+                <th>Bairro</th>
+                <th>Localidade</th>
+                <th>Complemento</th>
+                <th>Estado</th>
+                <th>Visualizar</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <nav id="paginator">
+            <ul class="pagination">
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
