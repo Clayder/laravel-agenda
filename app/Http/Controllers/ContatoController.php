@@ -22,8 +22,29 @@ class ContatoController extends Controller
      */
     public function indexjson(Request $request)
     {
-        $pesq = $request->input("q");
-        return Contato::paginate(10);
+        $pesq = trim($request->input("q"));
+        $pesqNome = trim($request->input("pesquisaNome"));
+        $pesqEmail = trim($request->input("pesquisaEmail"));
+
+        if ($pesq) {
+            return Contato::where("nome", "LIKE", "%$pesq%")
+                ->orWhere("telefone", "like", "%$pesq%")
+                ->orWhere("email", "like", "%$pesq%")
+                ->orWhere("cep", "like", "%$pesq%")
+                ->orWhere("logradouro", "like", "%$pesq%")
+                ->orWhere("complemento", "like", "%$pesq%")
+                ->orWhere("localidade", "like", "%$pesq%")
+                ->orWhere("uf", "like", "%$pesq%")
+                ->orWhere("bairro", "like", "%$pesq%")
+                ->paginate(10);
+        } elseif ($pesqNome && $pesqEmail) {
+            return Contato::where("nome", "LIKE", "%$pesqNome%")
+                ->where("email", "like", "%$pesqEmail%")
+                ->paginate(10);
+        } else {
+            return Contato::paginate(10);
+        }
+
     }
 
     /**
@@ -39,7 +60,7 @@ class ContatoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(\App\Http\Requests\ContatoStoreRequest $request)
@@ -51,7 +72,7 @@ class ContatoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -62,7 +83,7 @@ class ContatoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -73,8 +94,8 @@ class ContatoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -85,7 +106,7 @@ class ContatoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

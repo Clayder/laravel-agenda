@@ -2,40 +2,58 @@
  *
  * @param {int} pagina
  */
-function carregar(pagina){
-    $.get('/contato/json', {page: pagina, q: "ama"}, function (resp) {
-        montarTabela(resp);
-        montarPaginator(resp);
+function carregar(pagina) {
 
-        /**
-         * Depois que tudo estiver carregado, verifico as ações dos links
-         */
-        $("#paginator>ul>li>a").click(function(){
+    let pesquisa = $("#input-pesquisa").val();
+    let pesquisaNome = $("#pesquisa-nome").val();
+    let pesquisaEmail = $("#pesquisa-email").val();
 
-            let pag = $(this).attr('pagina');
-            localStorage.setItem('pagina', pag);
+    if (pesquisa) localStorage.setItem('q', pesquisa);
 
-            console.log(localStorage.getItem("pagina"));
-            console.log(localStorage.getItem("pagina55"));
+    if (pesquisaNome && pesquisaEmail) {
+        localStorage.setItem('pesquisa-nome', pesquisaNome);
+        localStorage.setItem('pesquisa-email', pesquisaEmail);
+    }
+
+    $.get(
+        '/contato/json',
+        {
+            page: pagina,
+            q: localStorage.getItem("q"),
+            pesquisaNome: localStorage.getItem("pesquisa-nome"),
+            pesquisaEmail: localStorage.getItem("pesquisa-email")
+        },
+        function (resp) {
+
+            montarTabela(resp);
+            montarPaginator(resp);
 
             /**
-             * Passando o numero da pagina
+             * Depois que tudo estiver carregado, verifico as ações dos links
              */
-            carregar(pag);
-        });
+            $("#paginator>ul>li>a").click(function () {
 
-    });
+                let pag = $(this).attr('pagina');
+                localStorage.setItem('pagina', pag);
+
+                /**
+                 * Passando o numero da pagina
+                 */
+                carregar(pag);
+            });
+
+        });
 }
 
 /**
  *
  * @param {Array} data
  */
-function montarTabela(data){
+function montarTabela(data) {
     // Remove todas as linhas da tabela
     $("#tabelaContato>tbody>tr").remove();
 
-    for(let i = 0; i<data.data.length; i++){
+    for (let i = 0; i < data.data.length; i++) {
         let linha = montarLinha(data.data[i]);
         $("#tabelaContato>tbody").append(linha);
     }
@@ -46,7 +64,7 @@ function montarTabela(data){
  * @param {Object} contato
  * @returns {string}
  */
-function montarLinha(contato){
+function montarLinha(contato) {
     return `
         <tr>
             <th scope="row">${contato.id}</th>
@@ -75,7 +93,7 @@ function montarLinha(contato){
  * @param {int} i
  * @returns {string}
  */
-function getItem(data, i){
+function getItem(data, i) {
     let active = (i == data.current_page) ? "class='active'" : "";
     return `
         <li ${active}>
@@ -90,10 +108,10 @@ function getItem(data, i){
  * @param {Array} data
  * @returns {string}
  */
-function getItemAnterior(data){
+function getItemAnterior(data) {
 
     // Não estamos na primeira pagina, temos item anterior
-    if(data.current_page > 1){
+    if (data.current_page > 1) {
         let i = data.current_page - 1;
         return `
             <li>
@@ -102,7 +120,7 @@ function getItemAnterior(data){
                 </a>
             </li>
         `;
-    }else{
+    } else {
         return '';
     }
 }
@@ -113,9 +131,9 @@ function getItemAnterior(data){
  * @param {Array} data
  * @returns {string}
  */
-function getItemProximo(data){
+function getItemProximo(data) {
     // Não estamos na ultima pagina, temos proximos itens
-    if(data.current_page < data.last_page){
+    if (data.current_page < data.last_page) {
         let i = data.current_page + 1;
         return `
             <li>
@@ -124,7 +142,7 @@ function getItemProximo(data){
                 </a>
             </li>
         `;
-    }else{
+    } else {
         return '';
     }
 }
@@ -134,22 +152,28 @@ function getItemProximo(data){
  *
  * @param {Array} data
  */
-function montarPaginator(data){
+function montarPaginator(data) {
     $("#paginator>ul>li").remove();
     $("#paginator>ul").append(getItemAnterior(data));
 
     let n = 10;
     let inicio, fim;
 
-    if (data.current_page - n/2 <= 1)
-        inicio = 1;
-    else if (data.last_page - data.current_page < n)
-        inicio = data.last_page - n + 1;
-    else
-        inicio = data.current_page - n/2;
+    if (data.last_page > n) {
+        if (data.current_page - n / 2 <= 1)
+            inicio = 1;
+        else if (data.last_page - data.current_page < n)
+            inicio = data.last_page - n + 1;
+        else
+            inicio = data.current_page - n / 2;
 
-    fim = inicio + n-1;
-    for(let i = inicio; i<=fim; i++){
+        fim = inicio + n - 1;
+    } else {
+        inicio = 1;
+        fim = data.last_page;
+    }
+
+    for (let i = inicio; i <= fim; i++) {
         let item = getItem(data, i);
         $("#paginator>ul").append(item);
     }
@@ -158,5 +182,40 @@ function montarPaginator(data){
 
 $(function () {
     let pag = (localStorage.getItem("pagina") == null) ? 1 : localStorage.getItem("pagina");
+    let inputPesquisa = $("#input-pesquisa");
+    let inputPesquisaNome = $("#pesquisa-nome");
+    let inputPesquisaEmail = $("#pesquisa-email");
+
+    inputPesquisa.val(localStorage.getItem("q"));
+    inputPesquisaNome.val(localStorage.getItem("pesquisa-nome"));
+    inputPesquisaEmail.val(localStorage.getItem("pesquisa-email"));
+
     carregar(pag);
+
+    $("#form-pesq").submit(function () {
+        inputPesquisaNome.val("");
+        inputPesquisaEmail.val("");
+        localStorage.clear();
+
+        if (inputPesquisa.val()) carregar(1);
+
+        return false;
+    });
+
+    $("#pesquisa-dupla").submit(function () {
+        inputPesquisa.val("");
+        localStorage.clear();
+
+        if (inputPesquisaNome.val() && inputPesquisaEmail.val()) carregar(1);
+
+        return false;
+    });
+
+    $("#btn-limpar-filtros").click(function () {
+        localStorage.clear();
+        inputPesquisaNome.val("");
+        inputPesquisaEmail.val("");
+        inputPesquisa.val("");
+        carregar(1);
+    });
 });
