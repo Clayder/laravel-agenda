@@ -23,7 +23,22 @@ class ContatoController extends Controller
     public function indexjson(Request $request)
     {
         $pesq = $request->input("q");
-        return Contato::paginate(10);
+
+        if($pesq){
+            return Contato::where("nome", "LIKE", "%$pesq%")
+                ->orWhere("telefone", "like", "%$pesq%")
+                ->orWhere("email", "like", "%$pesq%")
+                ->orWhere("cep", "like", "%$pesq%")
+                ->orWhere("logradouro", "like", "%$pesq%")
+                ->orWhere("complemento", "like", "%$pesq%")
+                ->orWhere("localidade", "like", "%$pesq%")
+                ->orWhere("uf", "like", "%$pesq%")
+                ->orWhere("bairro", "like", "%$pesq%")
+                ->paginate(10);
+        }else{
+            return Contato::paginate(10);
+        }
+
     }
 
     /**
