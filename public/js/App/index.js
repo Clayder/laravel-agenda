@@ -3,7 +3,15 @@
  * @param {int} pagina
  */
 function carregar(pagina){
-    $.get('/contato/json', {page: pagina, q: "ama"}, function (resp) {
+
+    let pesquisa = $("#input-pesquisa").val();
+    let pesquisaLocalStorage = localStorage.getItem("q");
+    $("#input-pesquisa").val(pesquisaLocalStorage);
+
+    if(pesquisa) localStorage.setItem('q', pesquisa);
+
+    $.get('/contato/json', {page: pagina, q: localStorage.getItem("q")}, function (resp) {
+
         montarTabela(resp);
         montarPaginator(resp);
 
@@ -14,9 +22,6 @@ function carregar(pagina){
 
             let pag = $(this).attr('pagina');
             localStorage.setItem('pagina', pag);
-
-            console.log(localStorage.getItem("pagina"));
-            console.log(localStorage.getItem("pagina55"));
 
             /**
              * Passando o numero da pagina
@@ -141,14 +146,20 @@ function montarPaginator(data){
     let n = 10;
     let inicio, fim;
 
-    if (data.current_page - n/2 <= 1)
-        inicio = 1;
-    else if (data.last_page - data.current_page < n)
-        inicio = data.last_page - n + 1;
-    else
-        inicio = data.current_page - n/2;
+    if(data.last_page > n){
+        if (data.current_page - n/2 <= 1)
+            inicio = 1;
+        else if (data.last_page - data.current_page < n)
+            inicio = data.last_page - n + 1;
+        else
+            inicio = data.current_page - n/2;
 
-    fim = inicio + n-1;
+        fim = inicio + n-1;
+    }else{
+        inicio = 1;
+        fim    = data.last_page;
+    }
+
     for(let i = inicio; i<=fim; i++){
         let item = getItem(data, i);
         $("#paginator>ul").append(item);
@@ -160,12 +171,9 @@ $(function () {
     let pag = (localStorage.getItem("pagina") == null) ? 1 : localStorage.getItem("pagina");
     carregar(pag);
 
-    // $("#btn-pesquisar").click(function () {
-    //     console.log("cliq");
-    // })
-
     $("#form-pesq").submit(function () {
-        console.log($("#input-pesquisa").val());
+        let pesq = $("#input-pesquisa").val();
+        if(pesq) carregar(1);
         return false;
     });
 });
