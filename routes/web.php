@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "ContatoController@index");
+Route::get('contato/json', "ContatoController@indexjson");
+
+/**
+ * Categoria de produtos
+ */
+Route::resource("contato", "ContatoController");
