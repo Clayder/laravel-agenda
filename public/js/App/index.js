@@ -176,4 +176,9 @@ $(function () {
         if(pesq) carregar(1);
         return false;
     });
+
+    $("#btn-limpar-filtros").click(function(){
+        localStorage.clear();
+        carregar(1);
+    });
 });

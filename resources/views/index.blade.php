@@ -30,6 +30,9 @@
             <button type="submit" class="btn btn-primary" id="btn-pesquisar">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
+            <button type="button" class="btn btn-danger" id="btn-limpar-filtros">
+                Limpar filtros
+            </button>
         </form>
     </div>
     <div class="row">
