@@ -4,13 +4,26 @@
  */
 function carregar(pagina){
 
-    let pesquisa = $("#input-pesquisa").val();
-    let pesquisaLocalStorage = localStorage.getItem("q");
-    $("#input-pesquisa").val(pesquisaLocalStorage);
+    let pesquisa      = $("#input-pesquisa").val();
+    let pesquisaNome  = $("#pesquisa-nome").val();
+    let pesquisaEmail = $("#pesquisa-email").val();
 
     if(pesquisa) localStorage.setItem('q', pesquisa);
 
-    $.get('/contato/json', {page: pagina, q: localStorage.getItem("q")}, function (resp) {
+    if(pesquisaNome && pesquisaEmail) {
+        localStorage.setItem('pesquisa-nome', pesquisaNome);
+        localStorage.setItem('pesquisa-email', pesquisaEmail);
+    }
+
+    $.get(
+        '/contato/json',
+        {
+            page: pagina,
+            q: localStorage.getItem("q"),
+            pesquisaNome: localStorage.getItem("pesquisa-nome"),
+            pesquisaEmail: localStorage.getItem("pesquisa-email")
+        },
+        function (resp) {
 
         montarTabela(resp);
         montarPaginator(resp);
@@ -169,16 +182,40 @@ function montarPaginator(data){
 
 $(function () {
     let pag = (localStorage.getItem("pagina") == null) ? 1 : localStorage.getItem("pagina");
+    let inputPesquisa      = $("#input-pesquisa");
+    let inputPesquisaNome  = $("#pesquisa-nome");
+    let inputPesquisaEmail = $("#pesquisa-email");
+
+    inputPesquisa.val(localStorage.getItem("q"));
+    inputPesquisaNome.val(localStorage.getItem("pesquisa-nome"));
+    inputPesquisaEmail.val(localStorage.getItem("pesquisa-email"));
+
     carregar(pag);
 
     $("#form-pesq").submit(function () {
-        let pesq = $("#input-pesquisa").val();
-        if(pesq) carregar(1);
+        inputPesquisaNome.val("");
+        inputPesquisaEmail.val("");
+        localStorage.clear();
+
+        if(inputPesquisa.val()) carregar(1);
+
+        return false;
+    });
+
+    $("#pesquisa-dupla").submit(function () {
+        inputPesquisa.val("");
+        localStorage.clear();
+
+        if(inputPesquisaNome.val() && inputPesquisaEmail.val()) carregar(1);
+
         return false;
     });
 
     $("#btn-limpar-filtros").click(function(){
         localStorage.clear();
+        inputPesquisaNome.val("");
+        inputPesquisaEmail.val("");
+        inputPesquisa.val("");
         carregar(1);
     });
 });

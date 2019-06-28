@@ -22,7 +22,9 @@ class ContatoController extends Controller
      */
     public function indexjson(Request $request)
     {
-        $pesq = $request->input("q");
+        $pesq      = trim($request->input("q"));
+        $pesqNome  = trim($request->input("pesquisaNome"));
+        $pesqEmail = trim($request->input("pesquisaEmail"));
 
         if($pesq){
             return Contato::where("nome", "LIKE", "%$pesq%")
@@ -34,6 +36,10 @@ class ContatoController extends Controller
                 ->orWhere("localidade", "like", "%$pesq%")
                 ->orWhere("uf", "like", "%$pesq%")
                 ->orWhere("bairro", "like", "%$pesq%")
+                ->paginate(10);
+        }elseif($pesqNome && $pesqEmail){
+            return Contato::where("nome", "LIKE", "%$pesqNome%")
+                ->where("email", "like", "%$pesqEmail%")
                 ->paginate(10);
         }else{
             return Contato::paginate(10);

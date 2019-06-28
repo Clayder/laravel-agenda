@@ -23,17 +23,32 @@
 <body>
 <div class="container" style="margin-top: 50px">
     <div class="row">
-        <form class="form-inline" style="float: right" id="form-pesq">
-            <div class="form-group">
-                <input type="text" class="form-control" id="input-pesquisa" placeholder="pesquisar">
-            </div>
-            <button type="submit" class="btn btn-primary" id="btn-pesquisar">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-danger" id="btn-limpar-filtros">
-                Limpar filtros
-            </button>
-        </form>
+        <div class="col-md-6">
+            <form class="form-inline" id="pesquisa-dupla">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="pesquisa-nome" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="pesquisa-email" placeholder="jane.doe@example.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline" style="float: right" id="form-pesq">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="input-pesquisa" placeholder="pesquisar" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btn-pesquisar">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-danger" id="btn-limpar-filtros">
+                    Limpar filtros
+                </button>
+            </form>
+        </div>
     </div>
     <div class="row">
         <table class="table table-striped" id="tabelaContato">
