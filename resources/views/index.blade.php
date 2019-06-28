@@ -29,7 +29,8 @@
                     <input type="text" class="form-control" id="pesquisa-nome" placeholder="Jane Doe" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="pesquisa-email" placeholder="jane.doe@example.com" required>
+                    <input type="text" class="form-control" id="pesquisa-email" placeholder="jane.doe@example.com"
+                           required>
                 </div>
                 <button type="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
