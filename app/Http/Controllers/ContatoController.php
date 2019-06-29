@@ -61,7 +61,7 @@ class ContatoController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\ContatoStoreRequest $request
+     * @param \App\Http\Requests\ContatoRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(\App\Http\Requests\ContatoRequest $request)
@@ -92,15 +92,22 @@ class ContatoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        $contato = Contato::find((int)$id);
-        return view("edit")->with('contato', $contato);
+        try {
+            $contato = Contato::findOrFail((int)$id);
+            return view("edit")->with('contato', $contato);
+        } catch (ModelNotFoundException $e) {
+            $request->session()->flash("msgError", "Esse contato não existe.");
+        }catch (Exception $e) {
+            $request->session()->flash("msgError", "Erro ao buscar o contato.");
+            Log::error($e->getMessage());
+        }
+        return redirect('/');
     }
 
     /**
