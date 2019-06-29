@@ -111,15 +111,27 @@ class ContatoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\ContatoRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(\App\Http\Requests\ContatoRequest $request, $id)
     {
-
+        $id = (int)$request->input("id");
+        $msgError = "Erro ao editar contato.";
+        try {
+            $contato = Contato::findOrFail((int)$id);
+            $data = $request->all();
+            $contato->update($data);
+            $request->session()->flash("msg", "Contato editado com sucesso.");
+        } catch (ModelNotFoundException $e) {
+            $request->session()->flash("msgError", $msgError);
+            Log::error($e->getMessage());
+        }catch (Exception $e) {
+            $request->session()->flash("msgError", $msgError);
+            Log::error($e->getMessage());
+        }
+        return redirect("/contato/{$id}/edit");
     }
 
     /**

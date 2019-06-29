@@ -40,7 +40,8 @@
                 @endif
                 <form action="/contato/update" method="POST">
                     @csrf
-                    {{ method_field('PUT') }}
+                    @method('PUT')
+                    <input type="hidden" name="id" value="{{$contato->id}}">
                     <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
                         <label class="control-label">Nome <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="nome" value="{{ old('nome') ? old('nome') : $contato->nome }}">
