@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contato;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ContatoController extends Controller
 {
@@ -54,19 +57,27 @@ class ContatoController extends Controller
      */
     public function create()
     {
-        //
+        return view("create");
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\ContatoStoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(\App\Http\Requests\ContatoStoreRequest $request)
     {
-        $data = $request->all();
-        return Contato::create($data);
+        try {
+            $data = $request->all();
+            Contato::create($data);
+            $request->session()->flash("msg", "Contato cadastrado com sucesso.");
+        } catch (ModelNotFoundException $e) {
+            $request->session()->flash("msgError", "Erro ao cadastrar o contato");
+            Log::error($e->getMessage());
+        }catch (Exception $e) {
+            $request->session()->flash("msgError", "Erro ao cadastrar o contato");
+            Log::error($e->getMessage());
+        }
+        return redirect('/contato/create');
     }
 
     /**
