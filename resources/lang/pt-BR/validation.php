@@ -145,6 +145,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => "e-mail",
+        'logradouro' => "rua",
+        'localidade' => "cidade",
+        'uf' => "estado"
+    ],
 
 ];
