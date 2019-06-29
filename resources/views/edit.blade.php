@@ -38,8 +38,9 @@
                         {{ session('msg') ? session('msg') : session('msgError') }}
                     </div>
                 @endif
-                <form action="/contato" method="POST">
+                <form action="/contato/update" method="POST">
                     @csrf
+                    {{ method_field('PUT') }}
                     <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
                         <label class="control-label">Nome <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
