@@ -49,32 +49,32 @@
                     </div>
                     <div class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
                         <label class="control-label">Cep</label>
-                        <input type="text" class="form-control" name="cep" value="{{ old('cep') }}">
+                        <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}">
                         <span class="help-block">{{ $errors->first('cep') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
                         <label class="control-label">logradouro</label>
-                        <input type="text" class="form-control" name="logradouro" value="{{ old('logradouro') }}">
+                        <input type="text" class="form-control" id="rua" name="logradouro" value="{{ old('logradouro') }}">
                         <span class="help-block">{{ $errors->first('logradouro') }}</span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Complemento</label>
-                        <input type="text" class="form-control" name="complemento" value="{{ old('complemento') }}">
+                        <input type="text" class="form-control" id="complemento" name="complemento" value="{{ old('complemento') }}">
                         <span class="help-block">{{ $errors->first('complemento') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
                         <label class="control-label">bairro</label>
-                        <input type="text" class="form-control" name="bairro" value="{{ old('bairro') }}">
+                        <input type="text" class="form-control" id="bairro" name="bairro" value="{{ old('bairro') }}">
                         <span class="help-block">{{ $errors->first('bairro') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
                         <label class="control-label">localidade</label>
-                        <input type="text" class="form-control" name="localidade" value="{{ old('localidade') }}">
+                        <input type="text" class="form-control" id="cidade" name="localidade" value="{{ old('localidade') }}">
                         <span class="help-block">{{ $errors->first('localidade') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('uf') ? 'has-error' : ''}}">
                         <label class="control-label">Estado</label>
-                        <input type="text" class="form-control" name="uf" value="{{ old('uf') }}">
+                        <input type="text" class="form-control" id="uf" name="uf" value="{{ old('uf') }}">
                         <span class="help-block">{{ $errors->first('uf') }}</span>
                     </div>
 
@@ -91,5 +91,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+<script src="{{asset('js/App/ViaCep.js')}}" type="text/javascript"></script>
 </body>
 </html>
