@@ -99,7 +99,8 @@ class ContatoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contato = Contato::find((int)$id);
+        return view("edit")->with('contato', $contato);
     }
 
     /**
