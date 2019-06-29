@@ -135,13 +135,27 @@ class ContatoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $id = (int)$request->input("id");
+        $msgError = "Erro ao excluir contato.";
+        if($request->getMethod() === "DELETE" && $id){
+            try {
+                $contato = Contato::findOrFail((int)$id);
+                $contato->delete();
+                $request->session()->flash("msg", "Contato excluído com sucesso.");
+            } catch (ModelNotFoundException $e) {
+                $request->session()->flash("msgError", $msgError);
+                Log::error($e->getMessage());
+            }catch (Exception $e) {
+                $request->session()->flash("msgError", $msgError);
+                Log::error($e->getMessage());
+            }
+        }
+        return redirect("/");
     }
 }
