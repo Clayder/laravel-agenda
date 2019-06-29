@@ -65,6 +65,7 @@ function montarTabela(data) {
  * @returns {string}
  */
 function montarLinha(contato) {
+    let complemento = (contato.complemento) ? contato.complemento : "";
     return `
         <tr>
             <th scope="row">${contato.id}</th>
@@ -75,10 +76,10 @@ function montarLinha(contato) {
             <td>${contato.logradouro}</td>
             <td>${contato.bairro}</td>
             <td>${contato.localidade}</td>
-            <td>${contato.complemento}</td>
+            <td>${complemento}</td>
             <td>${contato.uf}</td>
             <td>
-                <a type="button" href="/contato/${contato.id}" class="btn btn-info btn-lg">
+                <a type="button" href="/contato/${contato.id}/edit" class="btn btn-info btn-lg">
                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
             </td>

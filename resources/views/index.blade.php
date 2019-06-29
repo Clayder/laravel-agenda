@@ -31,6 +31,16 @@
         </a>
     </div>
     <div class="row">
+        @if(session('msg') || session('msgError'))
+            <div class="alert alert-{{ session('msg') ? "success" : "danger" }} alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                {{ session('msg') ? session('msg') : session('msgError') }}
+            </div>
+        @endif
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <form class="form-inline" id="pesquisa-dupla">
                 <div class="form-group">

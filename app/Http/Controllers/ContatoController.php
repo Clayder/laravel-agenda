@@ -61,10 +61,10 @@ class ContatoController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\ContatoStoreRequest $request
+     * @param \App\Http\Requests\ContatoRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(\App\Http\Requests\ContatoStoreRequest $request)
+    public function store(\App\Http\Requests\ContatoRequest $request)
     {
         try {
             $data = $request->all();
@@ -92,26 +92,46 @@ class ContatoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        try {
+            $contato = Contato::findOrFail((int)$id);
+            return view("edit")->with('contato', $contato);
+        } catch (ModelNotFoundException $e) {
+            $request->session()->flash("msgError", "Esse contato não existe.");
+        }catch (Exception $e) {
+            $request->session()->flash("msgError", "Erro ao buscar o contato.");
+            Log::error($e->getMessage());
+        }
+        return redirect('/');
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\ContatoRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\ContatoRequest $request, $id)
     {
-        //
+        $id = (int)$request->input("id");
+        $msgError = "Erro ao editar contato.";
+        try {
+            $contato = Contato::findOrFail((int)$id);
+            $data = $request->all();
+            $contato->update($data);
+            $request->session()->flash("msg", "Contato editado com sucesso.");
+        } catch (ModelNotFoundException $e) {
+            $request->session()->flash("msgError", $msgError);
+            Log::error($e->getMessage());
+        }catch (Exception $e) {
+            $request->session()->flash("msgError", $msgError);
+            Log::error($e->getMessage());
+        }
+        return redirect("/contato/{$id}/edit");
     }
 
     /**
