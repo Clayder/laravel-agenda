@@ -12,6 +12,8 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/683d3262aa.js"></script>
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,7 +23,13 @@
     <![endif]-->
 </head>
 <body>
-<div class="container" style="margin-top: 50px">
+<div class="container" style="margin-top: 30px; padding: 20px">
+    <div class="row">
+        <a href="/contato/create" class="btn btn-success btn-lg" style="float: right">
+            <i class="fas fa-user-plus"></i>
+            Cadastrar contato
+        </a>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <form class="form-inline" id="pesquisa-dupla">
