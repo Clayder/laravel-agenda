@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    function limpa_formulário_cep() {
+    function limpa_formulario_cep() {
         // Limpa valores do formulário de cep.
         $("#rua").val("");
         $("#bairro").val("");
@@ -27,7 +27,8 @@ $(document).ready(function() {
             //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
             let divClass = $("#div-cep");
-            removeClassHas(divClass);
+            $(".msg-endereco").hide();
+            removeClassHas($(".div-endereco"));
 
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
@@ -40,7 +41,7 @@ $(document).ready(function() {
 
                     if (!("erro" in dados)) {
                         $(".spinner-endereco").hide();
-                        $(divClass).addClass("has-success");
+                        $(".div-endereco").addClass("has-success");
                         //Atualiza os campos com os valores da consulta.
                         $("#rua").val(dados.logradouro);
                         $("#bairro").val(dados.bairro);
@@ -49,10 +50,12 @@ $(document).ready(function() {
                         $("#complemento").val(dados.complemento);
                     } //end if.
                     else {
+                        console.log("jkjkjk");
                         //CEP pesquisado não foi encontrado.
-                        limpa_formulário_cep();
+                        limpa_formulario_cep();
                         $(divClass).addClass("has-warning");
-                        $("#msg-cep").html("CEP não encontrado.");
+                        $("#msg-cep").show().html("CEP não encontrado.");
+                        $(".spinner-endereco").hide();
                     }
                 });
             } //end if.
