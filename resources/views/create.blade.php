@@ -25,56 +25,63 @@
 <body>
 <div class="container" style="margin-top: 30px; padding: 20px">
     <div class="row">
-        <form action="/contato" method="POST">
-            @csrf
-            <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
-                <label class="control-label">nome</label>
-                <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
-                <span class="help-block">{{ $errors->first('nome') }}</span>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fas fa-user-plus"></i> Cadastrar Contato</h3>
             </div>
-            <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
-                <label class="control-label">Telefone</label>
-                <input type="text" class="form-control" name="telefone" value="{{ old('telefone') }}">
-                <span class="help-block">{{ $errors->first('telefone') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-                <label class="control-label">Email address</label>
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                <span class="help-block">{{ $errors->first('email') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
-                <label class="control-label">Cep</label>
-                <input type="text" class="form-control" name="cep" value="{{ old('cep') }}">
-                <span class="help-block">{{ $errors->first('cep') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
-                <label class="control-label">logradouro</label>
-                <input type="text" class="form-control" name="logradouro" value="{{ old('logradouro') }}">
-                <span class="help-block">{{ $errors->first('logradouro') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Complemento</label>
-                <input type="text" class="form-control" name="complemento" value="{{ old('complemento') }}">
-                <span class="help-block">{{ $errors->first('complemento') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
-                <label class="control-label">bairro</label>
-                <input type="text" class="form-control" name="bairro" value="{{ old('bairro') }}">
-                <span class="help-block">{{ $errors->first('bairro') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
-                <label class="control-label">localidade</label>
-                <input type="text" class="form-control" name="localidade" value="{{ old('localidade') }}">
-                <span class="help-block">{{ $errors->first('localidade') }}</span>
-            </div>
-            <div class="form-group {{ $errors->has('uf') ? 'has-error' : ''}}">
-                <label class="control-label">Estado</label>
-                <input type="text" class="form-control" name="uf" value="{{ old('uf') }}">
-                <span class="help-block">{{ $errors->first('uf') }}</span>
-            </div>
+            <div class="panel-body">
+                <form action="/contato" method="POST">
+                    @csrf
+                    <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
+                        <label class="control-label">nome</label>
+                        <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
+                        <span class="help-block">{{ $errors->first('nome') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
+                        <label class="control-label">Telefone</label>
+                        <input type="text" class="form-control" name="telefone" value="{{ old('telefone') }}">
+                        <span class="help-block">{{ $errors->first('telefone') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
+                        <label class="control-label">Email address</label>
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                        <span class="help-block">{{ $errors->first('email') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
+                        <label class="control-label">Cep</label>
+                        <input type="text" class="form-control" name="cep" value="{{ old('cep') }}">
+                        <span class="help-block">{{ $errors->first('cep') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
+                        <label class="control-label">logradouro</label>
+                        <input type="text" class="form-control" name="logradouro" value="{{ old('logradouro') }}">
+                        <span class="help-block">{{ $errors->first('logradouro') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Complemento</label>
+                        <input type="text" class="form-control" name="complemento" value="{{ old('complemento') }}">
+                        <span class="help-block">{{ $errors->first('complemento') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
+                        <label class="control-label">bairro</label>
+                        <input type="text" class="form-control" name="bairro" value="{{ old('bairro') }}">
+                        <span class="help-block">{{ $errors->first('bairro') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
+                        <label class="control-label">localidade</label>
+                        <input type="text" class="form-control" name="localidade" value="{{ old('localidade') }}">
+                        <span class="help-block">{{ $errors->first('localidade') }}</span>
+                    </div>
+                    <div class="form-group {{ $errors->has('uf') ? 'has-error' : ''}}">
+                        <label class="control-label">Estado</label>
+                        <input type="text" class="form-control" name="uf" value="{{ old('uf') }}">
+                        <span class="help-block">{{ $errors->first('uf') }}</span>
+                    </div>
 
-            <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i> Cadastrar</button>
-        </form>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Cadastrar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
