@@ -33,7 +33,7 @@
                 <form action="/contato" method="POST">
                     @csrf
                     <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
-                        <label class="control-label">nome</label>
+                        <label class="control-label">Nome</label>
                         <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
                         <span class="help-block">{{ $errors->first('nome') }}</span>
                     </div>
@@ -43,7 +43,7 @@
                         <span class="help-block">{{ $errors->first('telefone') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-                        <label class="control-label">Email address</label>
+                        <label class="control-label">E-mail</label>
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                         <span class="help-block">{{ $errors->first('email') }}</span>
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
                         <label class="control-label">
-                            logradouro
+                            Rua
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="rua" name="logradouro" value="{{ old('logradouro') }}">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
                         <label class="control-label">
-                            bairro
+                            Bairro
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="bairro" name="bairro" value="{{ old('bairro') }}">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
                         <label class="control-label">
-                            localidade
+                            Cidade
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="cidade" name="localidade" value="{{ old('localidade') }}">
