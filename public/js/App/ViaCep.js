@@ -9,6 +9,12 @@ $(document).ready(function() {
         $("#complemento").val("");
     }
 
+    function removeClassHas(tag){
+        $(tag).removeClass(function (index, css) {
+            // Removendo classes com prefixo has
+            return (css.match (/\bhas-\S+/g) || []).join(' ');         });
+    }
+
     //Quando o campo cep perde o foco.
     $("#cep").blur(function() {
 
@@ -20,6 +26,8 @@ $(document).ready(function() {
 
             //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
+            let divClass = $("#div-cep");
+            removeClassHas(divClass);
 
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
@@ -35,6 +43,7 @@ $(document).ready(function() {
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
                     if (!("erro" in dados)) {
+                        $(divClass).addClass("has-success");
                         //Atualiza os campos com os valores da consulta.
                         $("#rua").val(dados.logradouro);
                         $("#bairro").val(dados.bairro);
@@ -45,14 +54,15 @@ $(document).ready(function() {
                     else {
                         //CEP pesquisado não foi encontrado.
                         limpa_formulário_cep();
-                        alert("CEP não encontrado.");
+                        $(divClass).addClass("has-warning");
+                        $("#msg-cep").html("CEP não encontrado.");
                     }
                 });
             } //end if.
             else {
                 //cep é inválido.
                 limpa_formulário_cep();
-                $("#div-cep").addClass("has-error");
+                $(divClass).addClass("has-error");
                 $("#msg-cep").html("CEP inválido.");
             }
         } //end if.
