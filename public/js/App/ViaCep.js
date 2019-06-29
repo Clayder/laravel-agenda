@@ -50,7 +50,6 @@ $(document).ready(function() {
                         $("#complemento").val(dados.complemento);
                     } //end if.
                     else {
-                        console.log("jkjkjk");
                         //CEP pesquisado não foi encontrado.
                         limpa_formulario_cep();
                         $(divClass).addClass("has-warning");
