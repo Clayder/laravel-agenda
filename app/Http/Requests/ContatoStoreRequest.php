@@ -23,10 +23,10 @@ class ContatoStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'nome'         => "required|min:2|max:190",
-            'telefone'     => "required|min:10|unique:contatos",
-            'email'        => "required|unique:contatos|email",
+            'telefone'     => "required|min:10",
+            'email'        => "required|email",
             'cep'          => "required",
             'logradouro'   => "required",
             'complemento',
@@ -34,6 +34,22 @@ class ContatoStoreRequest extends FormRequest
             'localidade'   => "required",
             'uf'           => "required|min:2"
         ];
+
+        Log::debug($this->method());
+        switch($this->method()) {
+            case "POST": // CRIAÇÃO DE UM NOVO REGISTRO
+                $rules["email"]    .= "|unique:contatos";
+                $rules["telefone"] .= "|unique:contatos";
+                break;
+            case "PUT": // ATUALIZAÇÃO DE UM REGISTRO EXISTENTE
+                Log::debug("entrei");
+                $rules["email"]    .= "|unique:contatos,email,".$this->id;
+                $rules["telefone"] .= "|unique:contatos,telefone,".$this->id;
+                break;
+            default:break;
+        }
+
+        return $rules;
     }
 
     /**
