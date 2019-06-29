@@ -64,7 +64,7 @@ class ContatoController extends Controller
      * @param \App\Http\Requests\ContatoStoreRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(\App\Http\Requests\ContatoStoreRequest $request)
+    public function store(\App\Http\Requests\ContatoRequest $request)
     {
         try {
             $data = $request->all();
@@ -110,9 +110,9 @@ class ContatoController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\ContatoRequest $request, $id)
     {
-        //
+
     }
 
     /**

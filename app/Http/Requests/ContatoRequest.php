@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContatoStoreRequest extends FormRequest
+class ContatoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -35,14 +35,12 @@ class ContatoStoreRequest extends FormRequest
             'uf'           => "required|min:2"
         ];
 
-        Log::debug($this->method());
         switch($this->method()) {
             case "POST": // CRIAÇÃO DE UM NOVO REGISTRO
                 $rules["email"]    .= "|unique:contatos";
                 $rules["telefone"] .= "|unique:contatos";
                 break;
             case "PUT": // ATUALIZAÇÃO DE UM REGISTRO EXISTENTE
-                Log::debug("entrei");
                 $rules["email"]    .= "|unique:contatos,email,".$this->id;
                 $rules["telefone"] .= "|unique:contatos,telefone,".$this->id;
                 break;
