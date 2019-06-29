@@ -33,28 +33,29 @@
                 <form action="/contato" method="POST">
                     @csrf
                     <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
-                        <label class="control-label">Nome</label>
+                        <label class="control-label">Nome <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
                         <span class="help-block">{{ $errors->first('nome') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
-                        <label class="control-label">Telefone</label>
+                        <label class="control-label">Telefone <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="telefone" value="{{ old('telefone') }}">
                         <span class="help-block">{{ $errors->first('telefone') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-                        <label class="control-label">E-mail</label>
+                        <label class="control-label">E-mail <span class="text-danger">*</span></label>
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                         <span class="help-block">{{ $errors->first('email') }}</span>
                     </div>
                     <div id="div-cep" class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
-                        <label class="control-label">Cep</label>
+                        <label class="control-label">Cep <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}">
                         <span class="help-block" id="msg-cep">{{ $errors->first('cep') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
                         <label class="control-label">
                             Rua
+                            <span class="text-danger">*</span>
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="rua" name="logradouro" value="{{ old('logradouro') }}">
@@ -71,6 +72,7 @@
                     <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
                         <label class="control-label">
                             Bairro
+                            <span class="text-danger">*</span>
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="bairro" name="bairro" value="{{ old('bairro') }}">
@@ -79,6 +81,7 @@
                     <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
                         <label class="control-label">
                             Cidade
+                            <span class="text-danger">*</span>
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="cidade" name="localidade" value="{{ old('localidade') }}">
@@ -87,6 +90,7 @@
                     <div class="form-group {{ $errors->has('uf') ? 'has-error' : ''}}">
                         <label class="control-label">
                             Estado
+                            <span class="text-danger">*</span>
                             <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
                         </label>
                         <input type="text" class="form-control" id="uf" name="uf" value="{{ old('uf') }}">
