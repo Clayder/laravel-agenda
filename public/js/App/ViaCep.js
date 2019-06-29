@@ -36,6 +36,7 @@ $(document).ready(function() {
                 // Exibir o load enquanto consulta webservice.
                 $(".spinner-endereco").show();
 
+                $("#btn-submit").prop("disabled",false);
                 //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
@@ -60,14 +61,15 @@ $(document).ready(function() {
             } //end if.
             else {
                 //cep é inválido.
-                limpa_formulário_cep();
+                limpa_formulario_cep();
                 $(divClass).addClass("has-error");
-                $("#msg-cep").html("CEP inválido.");
+                $("#msg-cep").show().html("CEP inválido.");
+                $("#btn-submit").prop("disabled",true);
             }
         } //end if.
         else {
             //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
+            limpa_formulario_cep();
         }
     });
 });

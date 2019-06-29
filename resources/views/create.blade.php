@@ -105,7 +105,7 @@
                         <span class="help-block msg-endereco">{{ $errors->first('uf') }}</span>
                     </div>
 
-                    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Cadastrar</button>
+                    <button type="submit" class="btn btn-success" id="btn-submit"><i class="fas fa-plus"></i> Cadastrar</button>
                 </form>
             </div>
         </div>
