@@ -32,17 +32,14 @@ $(document).ready(function() {
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                $("#rua").val("...");
-                $("#bairro").val("...");
-                $("#cidade").val("...");
-                $("#uf").val("...");
-                $("#complemento").val("...");
+                // Exibir o load enquanto consulta webservice.
+                $(".spinner-endereco").show();
 
                 //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
                     if (!("erro" in dados)) {
+                        $(".spinner-endereco").hide();
                         $(divClass).addClass("has-success");
                         //Atualiza os campos com os valores da consulta.
                         $("#rua").val(dados.logradouro);

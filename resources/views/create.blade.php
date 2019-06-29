@@ -53,27 +53,42 @@
                         <span class="help-block" id="msg-cep">{{ $errors->first('cep') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
-                        <label class="control-label">logradouro</label>
+                        <label class="control-label">
+                            logradouro
+                            <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
+                        </label>
                         <input type="text" class="form-control" id="rua" name="logradouro" value="{{ old('logradouro') }}">
                         <span class="help-block">{{ $errors->first('logradouro') }}</span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Complemento</label>
+                        <label class="control-label">
+                            Complemento
+                            <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
+                        </label>
                         <input type="text" class="form-control" id="complemento" name="complemento" value="{{ old('complemento') }}">
                         <span class="help-block">{{ $errors->first('complemento') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('bairro') ? 'has-error' : ''}}">
-                        <label class="control-label">bairro</label>
+                        <label class="control-label">
+                            bairro
+                            <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
+                        </label>
                         <input type="text" class="form-control" id="bairro" name="bairro" value="{{ old('bairro') }}">
                         <span class="help-block">{{ $errors->first('bairro') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('localidade') ? 'has-error' : ''}}">
-                        <label class="control-label">localidade</label>
+                        <label class="control-label">
+                            localidade
+                            <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
+                        </label>
                         <input type="text" class="form-control" id="cidade" name="localidade" value="{{ old('localidade') }}">
                         <span class="help-block">{{ $errors->first('localidade') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('uf') ? 'has-error' : ''}}">
-                        <label class="control-label">Estado</label>
+                        <label class="control-label">
+                            Estado
+                            <span class="fa fa-spinner fa-spin spinner-endereco" style="display: none"></span>
+                        </label>
                         <input type="text" class="form-control" id="uf" name="uf" value="{{ old('uf') }}">
                         <span class="help-block">{{ $errors->first('uf') }}</span>
                     </div>
