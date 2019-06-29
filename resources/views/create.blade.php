@@ -47,10 +47,10 @@
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                         <span class="help-block">{{ $errors->first('email') }}</span>
                     </div>
-                    <div class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
+                    <div id="div-cep" class="form-group {{ $errors->has('cep') ? 'has-error' : ''}}">
                         <label class="control-label">Cep</label>
                         <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}">
-                        <span class="help-block">{{ $errors->first('cep') }}</span>
+                        <span class="help-block" id="msg-cep">{{ $errors->first('cep') }}</span>
                     </div>
                     <div class="form-group {{ $errors->has('logradouro') ? 'has-error' : ''}}">
                         <label class="control-label">logradouro</label>

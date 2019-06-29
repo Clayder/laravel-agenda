@@ -52,7 +52,8 @@ $(document).ready(function() {
             else {
                 //cep é inválido.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
+                $("#div-cep").addClass("has-error");
+                $("#msg-cep").html("CEP inválido.");
             }
         } //end if.
         else {
