@@ -6,6 +6,7 @@ use App\Contato;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ContatoController extends Controller
 {
@@ -71,8 +72,10 @@ class ContatoController extends Controller
             $request->session()->flash("msg", "Contato cadastrado com sucesso.");
         } catch (ModelNotFoundException $e) {
             $request->session()->flash("msgError", "Erro ao cadastrar o contato");
+            Log::error($e->getMessage());
         }catch (Exception $e) {
             $request->session()->flash("msgError", "Erro ao cadastrar o contato");
+            Log::error($e->getMessage());
         }
         return redirect('/contato/create');
     }
