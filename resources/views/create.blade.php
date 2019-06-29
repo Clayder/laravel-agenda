@@ -30,6 +30,14 @@
                 <h3 class="panel-title"><i class="fas fa-user-plus"></i> Cadastrar Contato</h3>
             </div>
             <div class="panel-body">
+                @if(session('msg') || session('msgError'))
+                    <div class="alert alert-{{ session('msg') ? "success" : "danger" }} alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        {{ session('msg') ? session('msg') : session('msgError') }}
+                    </div>
+                @endif
                 <form action="/contato" method="POST">
                     @csrf
                     <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
