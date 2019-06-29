@@ -79,7 +79,7 @@ function montarLinha(contato) {
             <td>${complemento}</td>
             <td>${contato.uf}</td>
             <td>
-                <a type="button" href="/contato/${contato.id}" class="btn btn-info btn-lg">
+                <a type="button" href="/contato/${contato.id}/edit" class="btn btn-info btn-lg">
                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
             </td>
