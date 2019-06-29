@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4e28557b1c165ae9403420abfdb1e55",
+    "content-hash": "7be1dff7b3d072ffa9ceed4a578851f7",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -808,6 +808,46 @@
                 "storage"
             ],
             "time": "2019-06-18T20:09:29+00:00"
+        },
+        {
+            "name": "lucascudo/laravel-pt-br-localization",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucascudo/laravel-pt-BR-localization.git",
+                "reference": "3525b156774a9ab9b8276782b7b9f0d728abdec6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucascudo/laravel-pt-BR-localization/zipball/3525b156774a9ab9b8276782b7b9f0d728abdec6",
+                "reference": "3525b156774a9ab9b8276782b7b9f0d728abdec6",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lucascudo\\LaravelPtBRLocalization\\LaravelPtBRLocalizationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lucascudo\\LaravelPtBRLocalization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cascudo",
+                    "email": "lucas.sisau@gmail.com"
+                }
+            ],
+            "description": "Arquivos de linguagem em Português do Brasil (pt-BR) para Laravel >= 5.6",
+            "time": "2019-06-25T12:28:03+00:00"
         },
         {
             "name": "monolog/monolog",
