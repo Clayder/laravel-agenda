@@ -73,7 +73,6 @@
             </ul>
         </nav>
     </div>
-    </div>
 @endsection
 
 @section("js")
