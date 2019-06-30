@@ -20,7 +20,7 @@
         @endif
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 espacamento">
             <form class="form-inline" id="pesquisa-dupla">
                 <div class="form-group">
                     <input type="text" class="form-control" id="pesquisa-nome" placeholder="Jane Doe" required>
@@ -34,21 +34,23 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6">
-            <form class="form-inline" style="float: right" id="form-pesq">
+        <div class="col-md-3 espacamento">
+            <form class="form-inline" id="form-pesq">
                 <div class="form-group">
                     <input type="text" class="form-control" id="input-pesquisa" placeholder="pesquisar" required>
                 </div>
                 <button type="submit" class="btn btn-primary" id="btn-pesquisar">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
-                <button type="button" class="btn btn-danger" id="btn-limpar-filtros">
-                    Limpar filtros
-                </button>
             </form>
         </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-danger" style="float: right" id="btn-limpar-filtros">
+                Limpar filtros
+            </button>
+        </div>
     </div>
-    <div class="row">
+    <div class="row tabela">
         <table class="table table-striped" id="tabelaContato">
             <thead>
             <tr>
@@ -68,6 +70,8 @@
             <tbody>
             </tbody>
         </table>
+    </div>
+    <div class="row">
         <nav id="paginator">
             <ul class="pagination">
             </ul>

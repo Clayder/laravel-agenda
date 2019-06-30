@@ -1,0 +1,9 @@
+div.row, div.espacamento{
+    margin-bottom: 20px;
+}
+
+div.tabela{
+    min-width: 50px;
+    max-width: 1200px;
+    overflow-x: auto
+}
