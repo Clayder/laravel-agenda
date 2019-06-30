@@ -43,13 +43,12 @@ Login
 
 Principais Pull Requests
 =============
-
 | Funcionalidades       | Pull Request |
 |-----------------------|--------------|
-| Cadastrar contato     | #6  #14      |
-| Edição dos contatos   | #15          |
-| Excluir contato       | #16          |
-| Listagem dos contatos | #8           |
-| Pesquisa de contatos  | #12          |
-| Melhorias no layout   | #18          |
-| Login                 | #22          |
+| Cadastrar contato     |#[6](https://github.com/Clayder/laravel-agenda/pull/6)        #[14](https://github.com/Clayder/laravel-agenda/pull/14)      |
+| Edição dos contatos   | #[15](https://github.com/Clayder/laravel-agenda/pull/15)          |
+| Excluir contato       | #[16](https://github.com/Clayder/laravel-agenda/pull/16)          |
+| Listagem dos contatos | #[8](https://github.com/Clayder/laravel-agenda/pull/8)           |
+| Pesquisa de contatos  | #[12](https://github.com/Clayder/laravel-agenda/pull/12)          |
+| Melhorias no layout   | #[18](https://github.com/Clayder/laravel-agenda/pull/18)          |
+| Login                 | #[22](https://github.com/Clayder/laravel-agenda/pull/2)          |
