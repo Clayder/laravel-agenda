@@ -34,8 +34,22 @@ Executar no terminal:
 9) `php artisan serve`
 
 Login
------
+=============
 
  **E-mail:** admin@gmail.com
  
  **Senha:** admin123
+
+
+Principais Pull Requests
+=============
+
+| Funcionalidades       | Pull Request |
+|-----------------------|--------------|
+| Cadastrar contato     | #6  #14      |
+| Edição dos contatos   | #15          |
+| Excluir contato       | #16          |
+| Listagem dos contatos | #8           |
+| Pesquisa de contatos  | #12          |
+| Melhorias no layout   | #18          |
+| Login                 | #22          |
