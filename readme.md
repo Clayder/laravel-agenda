@@ -41,7 +41,7 @@ Login
  **Senha:** admin123
 
 
-Principais Pull Requests
+Principais funcionalidades  [PRs](https://github.com/Clayder/laravel-agenda/pulls?q=is%3Apr+is%3Aclosed)
 =============
 | Funcionalidades       | Pull Request |
 |-----------------------|--------------|
