@@ -109,6 +109,14 @@
 
                     <button type="submit" class="btn btn-success" id="btn-submit"><i class="fas fa-edit"></i> Editar </button>
                 </form>
+
+                <form action="/contato/delete" method="POST" onsubmit="return confirm('Realmente deseja excluir ?');">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="id" value="{{$contato->id}}">
+                    <button type="submit" class="btn btn-danger" id="btn-submit"><i class="fas fa-trash-alt"></i> Excluir </button>
+                </form>
+
             </div>
         </div>
     </div>
