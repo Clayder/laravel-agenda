@@ -3,13 +3,13 @@
 @section("titulo", "Contatos")
 
 @section("conteudo")
-    <div class="row">
+    <div class="row my-row">
         <a href="/contato/create" class="btn btn-success btn-lg" style="float: right">
             <i class="fas fa-user-plus"></i>
             Cadastrar contato
         </a>
     </div>
-    <div class="row">
+    <div class="row my-row">
         @if(session('msg') || session('msgError'))
             <div class="alert alert-{{ session('msg') ? "success" : "danger" }} alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,8 +19,8 @@
             </div>
         @endif
     </div>
-    <div class="row">
-        <div class="col-md-6 espacamento">
+    <div class="row my-row">
+        <div class="col-md-6 my-div">
             <form class="form-inline" id="pesquisa-dupla">
                 <div class="form-group">
                     <input type="text" class="form-control" id="pesquisa-nome" placeholder="Jane Doe" required>
@@ -34,7 +34,7 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-3 espacamento">
+        <div class="col-md-3 my-div">
             <form class="form-inline" id="form-pesq">
                 <div class="form-group">
                     <input type="text" class="form-control" id="input-pesquisa" placeholder="pesquisar" required>
