@@ -98,7 +98,7 @@ function getItem(data, i) {
     let active = (i == data.current_page) ? "class='active'" : "";
     return `
         <li ${active}>
-            <a href="#" pagina="${i}">${i}</a>
+            <a href="javascript:void(0);" pagina="${i}">${i}</a>
         </li>
     `;
 }
@@ -116,7 +116,7 @@ function getItemAnterior(data) {
         let i = data.current_page - 1;
         return `
             <li>
-                <a href="#" pagina="${i}" aria-label="Previous">
+                <a href="javascript:void(0);" pagina="${i}" aria-label="Previous">
                     <span aria-hidden="true">«</span>
                 </a>
             </li>
@@ -138,7 +138,7 @@ function getItemProximo(data) {
         let i = data.current_page + 1;
         return `
             <li>
-                <a href="#" pagina="${i}" aria-label="Next">
+                <a href="javascript:void(0);" pagina="${i}" aria-label="Next">
                     <span aria-hidden="true">»</span>
                 </a>
             </li>
