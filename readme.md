@@ -3,9 +3,7 @@ Laravel Agenda
 
 Sistema de agenda desenvolvido com Laravel 5.8 e Twitter BootStrap 3
 
-[![Watch the video](https://live.staticflickr.com/5765/23207680879_9c86233e9b.jpg)](https://youtu.be/diiJVjR1HVM)
-
-https://youtu.be/diiJVjR1HVM 
+**Demonstração:** https://youtu.be/diiJVjR1HVM 
 
 Instalação
 ----------
