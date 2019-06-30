@@ -11,7 +11,7 @@ Instalação
  3) executar `composer install`
  4) Criar um banco de dados (Ex: agenda)
  5) Renomear o arquivo **.env.example** (localizado na raiz do projeto) para **.env**
- 6) Acessar o arquivo .env e configurar o banco de dados 
+ 6) Acessar o arquivo .env e inserir as suas configurações do banco de dados 
  
 
     DB_CONNECTION=mysql
@@ -32,3 +32,9 @@ Executar no terminal:
 8) `php artisan db:seed`
 8) `php artisan key:generate`
 9) `php artisan serve`
+
+Login
+-----
+
+ **E-mail:** admin@gmail.com
+ **Senha:** admin123
