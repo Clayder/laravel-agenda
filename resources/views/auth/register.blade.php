@@ -5,7 +5,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fas fa-user-plus"></i> Cadastrar Contato</h3>
+                <h3 class="panel-title"><i class="fas fa-user-circle"></i> Cadastrar Usuário</h3>
             </div>
             <div class="panel-body">
                 <form method="POST" action="{{ route('register') }}">
@@ -30,7 +30,10 @@
                         <input type="password" class="form-control" name="password_confirmation">
                         <span id="helpBlock2" class="help-block">{{ $errors->first('password_confirmation') }}</span>
                     </div>
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-success btn-lg">
+                        <i class="fas fa-plus"></i>
+                        Cadastrar
+                    </button>
                 </form>
             </div>
         </div>
