@@ -10,7 +10,7 @@ Instalação
  2) Acessar o projeto pelo terminal 
  3) executar `composer install`
  4) Criar um banco de dados (Ex: agenda)
- 5) Renomear o arquivo **.env.example** para **.env**
+ 5) Renomear o arquivo **.env.example** (localizado na raiz do projeto) para **.env**
  6) Acessar o arquivo .env e configurar o banco de dados 
  
 
