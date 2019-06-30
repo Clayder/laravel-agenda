@@ -55,17 +55,17 @@
         <table class="table table-striped" id="tabelaContato">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>E-mail</th>
-                <th>Cep</th>
-                <th>Rua</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>Complemento</th>
-                <th>Estado</th>
-                <th>Visualizar</th>
+                <th  class="text-center">#</th>
+                <th class="text-center">Nome</th>
+                <th class="text-center">Telefone</th>
+                <th class="text-center">E-mail</th>
+                <th class="text-center">Cep</th>
+                <th class="text-center">Rua</th>
+                <th class="text-center">Bairro</th>
+                <th class="text-center">Cidade</th>
+                <th class="text-center">Complemento</th>
+                <th class="text-center">Estado</th>
+                <th class="text-center">Visualizar</th>
             </tr>
             </thead>
             <tbody>
