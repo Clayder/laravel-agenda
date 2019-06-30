@@ -54,4 +54,4 @@ Principais funcionalidades
 | Login                 | #[22](https://github.com/Clayder/laravel-agenda/pull/2)          |
 
 
-**Mais Pullrequests finalizados:**  [Clique aqui](https://github.com/Clayder/laravel-agenda/pulls?q=is%3Apr+is%3Aclosed)
+**Mais Pull Requests finalizados:**  [Clique aqui](https://github.com/Clayder/laravel-agenda/pulls?q=is%3Apr+is%3Aclosed)
