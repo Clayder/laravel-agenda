@@ -36,9 +36,9 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/" title="Listagem de contatos">
+                    <a class="navbar-brand btn-lg" href="/" title="Listagem de contatos">
                         <i class="fas fa-address-book text-primary"></i>
-                        <span class="text-primary">Contatos</span>
+                        <span class="text-primary">Listar Contatos</span>
                     </a>
                 </div>
 

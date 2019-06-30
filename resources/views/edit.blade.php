@@ -3,6 +3,17 @@
 @section("titulo", "Editar contato")
 
 @section("conteudo")
+
+    <div class="row my-row">
+        <form style="float: right;" action="/contato/delete" method="POST" onsubmit="return confirm('Realmente deseja excluir ?');">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="id" value="{{$contato->id}}">
+            <button type="submit" class="btn btn-lg btn-danger" id="btn-submit"><i class="fas fa-trash-alt"></i>
+                Excluir Contato
+            </button>
+        </form>
+    </div>
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -96,19 +107,9 @@
                         <span class="help-block msg-endereco">{{ $errors->first('uf') }}</span>
                     </div>
 
-                    <button type="submit" class="btn btn-success" id="btn-submit"><i class="fas fa-edit"></i> Editar
+                    <button type="submit" class="btn btn-lg btn-success" id="btn-submit"><i class="fas fa-edit"></i> Editar
                     </button>
                 </form>
-
-                <form action="/contato/delete" method="POST" onsubmit="return confirm('Realmente deseja excluir ?');">
-                    @csrf
-                    @method('DELETE')
-                    <input type="hidden" name="id" value="{{$contato->id}}">
-                    <button type="submit" class="btn btn-danger" id="btn-submit"><i class="fas fa-trash-alt"></i>
-                        Excluir
-                    </button>
-                </form>
-
             </div>
         </div>
     </div>

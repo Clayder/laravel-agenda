@@ -7,3 +7,7 @@ div.tabela{
     max-width: 1200px;
     overflow-x: auto
 }
+
+i{
+    font-size: 20px;
+}
