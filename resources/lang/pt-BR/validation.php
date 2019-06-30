@@ -149,7 +149,9 @@ return [
         'email' => "e-mail",
         'logradouro' => "rua",
         'localidade' => "cidade",
-        'uf' => "estado"
+        'uf' => "estado",
+        'password' => "senha",
+        'name' => "nome"
     ],
 
 ];
