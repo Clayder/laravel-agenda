@@ -60,9 +60,9 @@
                 <th>Telefone</th>
                 <th>E-mail</th>
                 <th>Cep</th>
-                <th>Logradouro</th>
+                <th>Rua</th>
                 <th>Bairro</th>
-                <th>Localidade</th>
+                <th>Cidade</th>
                 <th>Complemento</th>
                 <th>Estado</th>
                 <th>Visualizar</th>
