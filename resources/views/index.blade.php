@@ -45,7 +45,8 @@
             </form>
         </div>
         <div class="col-md-3">
-            <button type="button" class="btn btn-danger" style="float: right" id="btn-limpar-filtros">
+            <button type="button" class="btn btn-danger" title="Clique aqui para limpar os campos de pesquisa e paginação" style="float: right" id="btn-limpar-filtros">
+                <i class="fas fa-broom"></i>
                 Limpar filtros
             </button>
         </div>

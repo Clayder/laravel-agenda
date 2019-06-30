@@ -36,7 +36,10 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/"><i class="fas fa-address-book text-primary"></i> <span class="text-primary">Contatos</span></a>
+                    <a class="navbar-brand" href="/" title="Listagem de contatos">
+                        <i class="fas fa-address-book text-primary"></i>
+                        <span class="text-primary">Contatos</span>
+                    </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
